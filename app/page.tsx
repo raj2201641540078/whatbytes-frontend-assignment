@@ -16,8 +16,9 @@ export default function Home() {
     <>
       {/* Header */}
       <Header search={search} setSearch={setSearch} />
+      <main className="max-w-7xl mx-auto p-6 rounded-lg">
 
-      <main className="max-w-7xl mx-auto p-6 bg-blue-50 rounded-lg">
+      {/* <main className="max-w-7xl mx-auto p-6 bg-blue-50 rounded-lg"> */}
         <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-6">
 
           {/* Sidebar */}
