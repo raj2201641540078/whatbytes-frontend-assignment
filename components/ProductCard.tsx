@@ -1,3 +1,7 @@
+"use client";
+
+import { useCart } from "../context/CartContext";
+
 type Product = {
   id: number;
   title: string;
@@ -5,13 +9,27 @@ type Product = {
   image: string;
 };
 
-export default function ProductCard({ title, price, image }: Product) {
+export default function ProductCard({ id, title, price, image }: Product) {
+  const { addToCart } = useCart();
+
   return (
-    <div className="border rounded-lg p-4 shadow-sm hover:shadow-md">
-      <img src={image} alt={title} className="h-32 mx-auto mb-4" />
-      <h3 className="font-medium">{title}</h3>
-      <p className="text-gray-600">${price}</p>
-      <button className="mt-3 w-full bg-blue-600 text-white py-1 rounded">
+    <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition">
+
+      
+      <img
+  src={image}
+  alt={title}
+  className="h-28 w-full object-contain mb-3"
+/>
+
+
+      <h3 className="font-medium text-sm">{title}</h3>
+      <p className="text-gray-700 font-semibold">${price}</p>
+
+      <button
+        onClick={() => addToCart({ id, title, price, image })}
+        className="mt-3 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+      >
         Add to Cart
       </button>
     </div>
